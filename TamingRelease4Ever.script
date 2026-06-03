@@ -3,25 +3,34 @@
 # Plays until you manually pause it
 # Releases pet 1, releases pet 2, tames pet 1, tames pet 2, repeat.
 ########################################
-# V 9.0  - Last Updated: 03/06/2026 ##
+# V 10.0  - Last Updated: 03/06/2026 ##
 ########################################
-### CHANGE THESE TO MATCH YOUR PETS EXACT IN-GAME NAMES
 @setvar! tameDelay 4500
 @setvar! releaseDelay 500
 ########################################
 ### SELECT PET 1
 ########################################
-overhead 'SELECT PET 1' 88
-sysmsg 'Click on the FIRST pet you want to train.'
+overhead 'SELECT PET 1 - Click your first pet now!' 88
+sysmsg 'SELECT PET 1: Click your FIRST pet.'
+wait 500
 setvar 'trainPet1'
-wait 300
+useobject 'trainPet1'
+wait 500
+overhead 'PET 1 SELECTED!' 68
+sysmsg 'Pet 1 locked in. Get ready to select Pet 2...'
+wait 2000
 ########################################
 ### SELECT PET 2
 ########################################
-overhead 'SELECT PET 2' 88
-sysmsg 'Click on the SECOND pet you want to train.'
+overhead 'SELECT PET 2 - Click your second pet now!' 88
+sysmsg 'SELECT PET 2: Click your SECOND pet (must be a DIFFERENT pet).'
+wait 500
 setvar 'trainPet2'
-wait 300
+useobject 'trainPet2'
+wait 500
+overhead 'PET 2 SELECTED! Starting loop...' 68
+sysmsg 'Pet 2 locked in. Starting in 3 seconds...'
+wait 3000
 ########################################
 ### LOOP
 ########################################
@@ -29,6 +38,7 @@ while not dead
     ################################
     ### RELEASE PET 1
     ################################
+    overhead 'Releasing Pet 1...' 88
     say 'a husk crab release'
     wait 250
     waitforgump 2426193729 3000
@@ -38,6 +48,7 @@ while not dead
     ################################
     ### RELEASE PET 2
     ################################
+    overhead 'Releasing Pet 2...' 88
     say 'TrainPet release'
     wait 250
     waitforgump 2426193729 3000
@@ -47,6 +58,7 @@ while not dead
     ################################
     ### TAME PET 1
     ################################
+    overhead 'Taming Pet 1...' 68
     hotkey 'Animal Taming'
     waitfortarget 1500
     target 'trainPet1'
@@ -55,6 +67,7 @@ while not dead
     ################################
     ### TAME PET 2
     ################################
+    overhead 'Taming Pet 2...' 68
     hotkey 'Animal Taming'
     waitfortarget 1500
     target 'trainPet2'
