@@ -3,12 +3,9 @@
 # Plays until you manually pause it
 # Releases pet 1, releases pet 2, tames pet 1, tames pet 2, repeat.
 ########################################
-# V 8.0  - Last Updated: 03/06/2026 ##
+# V 9.0  - Last Updated: 03/06/2026 ##
 ########################################
-### SET YOUR PET NAMES HERE (must match exactly in-game)
-@setvar! pet1Name 'a husk crab'
-@setvar! pet2Name 'TrainPet'
-########################################
+### CHANGE THESE TO MATCH YOUR PETS EXACT IN-GAME NAMES
 @setvar! tameDelay 4500
 @setvar! releaseDelay 500
 ########################################
@@ -32,19 +29,19 @@ while not dead
     ################################
     ### RELEASE PET 1
     ################################
-    say pet1Name 'release'
+    say 'a husk crab release'
     wait 250
-    waitforgump 0 3000
-    gumpresponse 0
+    waitforgump 2426193729 3000
+    gumpresponse 1
     wait releaseDelay
 
     ################################
     ### RELEASE PET 2
     ################################
-    say pet2Name 'release'
+    say 'TrainPet release'
     wait 250
-    waitforgump 0 3000
-    gumpresponse 0
+    waitforgump 2426193729 3000
+    gumpresponse 1
     wait releaseDelay
 
     ################################
