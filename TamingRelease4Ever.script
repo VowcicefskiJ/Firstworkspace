@@ -3,12 +3,12 @@
 # Plays until you manually pause it
 # Releases pet 1, releases pet 2, tames pet 1, tames pet 2, repeat.
 ########################################
-# V 12.0  - Last Updated: 03/06/2026 ##
+# V 13.0  - Last Updated: 03/06/2026 ##
 ########################################
 @setvar! tameDelay 8000
 @setvar! releaseDelay 500
 ########################################
-### SELECT PET 1
+### SELECT PET 1 (TrainPet)
 ########################################
 overhead 'SELECT PET 1 - Click your first pet now!' 88
 sysmsg 'SELECT PET 1: Click your FIRST pet.'
@@ -18,7 +18,7 @@ wait 500
 overhead 'PET 1 SELECTED! Get ready for Pet 2...' 68
 wait 2000
 ########################################
-### SELECT PET 2
+### SELECT PET 2 (a husk crab)
 ########################################
 overhead 'SELECT PET 2 - Click your second pet now!' 88
 sysmsg 'SELECT PET 2: Click your SECOND pet.'
@@ -32,19 +32,9 @@ wait 3000
 ########################################
 while not dead
     ################################
-    ### RELEASE PET 1
+    ### RELEASE PET 1 (TrainPet)
     ################################
     overhead 'Releasing Pet 1...' 88
-    say 'a husk crab release'
-    wait 250
-    waitforgump 2426193729 3000
-    gumpresponse 1
-    wait releaseDelay
-
-    ################################
-    ### RELEASE PET 2
-    ################################
-    overhead 'Releasing Pet 2...' 88
     say 'TrainPet release'
     wait 250
     waitforgump 2426193729 3000
@@ -52,23 +42,33 @@ while not dead
     wait releaseDelay
 
     ################################
-    ### TAME PET 1
+    ### RELEASE PET 2 (a husk crab)
+    ################################
+    overhead 'Releasing Pet 2...' 88
+    say 'a husk crab release'
+    wait 250
+    waitforgump 2426193729 3000
+    gumpresponse 1
+    wait releaseDelay
+
+    ################################
+    ### TAME PET 1 then rename it back
     ################################
     overhead 'Taming Pet 1...' 68
     hotkey 'Animal Taming'
     waitfortarget 1500
     target 'trainPet1'
     wait tameDelay
+    rename 'trainPet1' 'TrainPet'
+    wait 500
 
     ################################
-    ### TAME PET 2 then rename it back
+    ### TAME PET 2 (a husk crab - keeps its name naturally)
     ################################
     overhead 'Taming Pet 2...' 68
     hotkey 'Animal Taming'
     waitfortarget 1500
     target 'trainPet2'
     wait tameDelay
-    rename 'trainPet2' 'TrainPet'
-    wait 500
 
 endwhile
