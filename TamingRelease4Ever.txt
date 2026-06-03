@@ -3,7 +3,7 @@
 # Plays until you manually pause it
 # Releases pet 1, releases pet 2, tames pet 1, tames pet 2, repeat.
 ########################################
-# V 10.0  - Last Updated: 03/06/2026 ##
+# V 11.0  - Last Updated: 03/06/2026 ##
 ########################################
 @setvar! tameDelay 4500
 @setvar! releaseDelay 500
@@ -14,22 +14,18 @@ overhead 'SELECT PET 1 - Click your first pet now!' 88
 sysmsg 'SELECT PET 1: Click your FIRST pet.'
 wait 500
 setvar 'trainPet1'
-useobject 'trainPet1'
 wait 500
-overhead 'PET 1 SELECTED!' 68
-sysmsg 'Pet 1 locked in. Get ready to select Pet 2...'
+overhead 'PET 1 SELECTED! Get ready for Pet 2...' 68
 wait 2000
 ########################################
 ### SELECT PET 2
 ########################################
 overhead 'SELECT PET 2 - Click your second pet now!' 88
-sysmsg 'SELECT PET 2: Click your SECOND pet (must be a DIFFERENT pet).'
+sysmsg 'SELECT PET 2: Click your SECOND pet.'
 wait 500
 setvar 'trainPet2'
-useobject 'trainPet2'
 wait 500
-overhead 'PET 2 SELECTED! Starting loop...' 68
-sysmsg 'Pet 2 locked in. Starting in 3 seconds...'
+overhead 'PET 2 SELECTED! Starting in 3 seconds...' 68
 wait 3000
 ########################################
 ### LOOP
@@ -65,12 +61,14 @@ while not dead
     wait tameDelay
 
     ################################
-    ### TAME PET 2
+    ### TAME PET 2 then rename it back
     ################################
     overhead 'Taming Pet 2...' 68
     hotkey 'Animal Taming'
     waitfortarget 1500
     target 'trainPet2'
     wait tameDelay
+    rename 'trainPet2' 'TrainPet'
+    wait 500
 
 endwhile
