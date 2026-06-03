@@ -3,7 +3,11 @@
 # Plays until you manually pause it
 # Releases pet 1, releases pet 2, tames pet 1, tames pet 2, repeat.
 ########################################
-# V 7.0  - Last Updated: 03/06/2026 ##
+# V 8.0  - Last Updated: 03/06/2026 ##
+########################################
+### SET YOUR PET NAMES HERE (must match exactly in-game)
+@setvar! pet1Name 'a husk crab'
+@setvar! pet2Name 'TrainPet'
 ########################################
 @setvar! tameDelay 4500
 @setvar! releaseDelay 500
@@ -15,10 +19,10 @@ sysmsg 'Click on the FIRST pet you want to train.'
 setvar 'trainPet1'
 wait 300
 ########################################
-### SELECT PET 2 (same type as Pet 1)
+### SELECT PET 2
 ########################################
 overhead 'SELECT PET 2' 88
-sysmsg 'Click on the SECOND pet you want to train (same type as Pet 1).'
+sysmsg 'Click on the SECOND pet you want to train.'
 setvar 'trainPet2'
 wait 300
 ########################################
@@ -28,8 +32,8 @@ while not dead
     ################################
     ### RELEASE PET 1
     ################################
-    contextmenu 'trainPet1' 6
-    wait 500
+    say pet1Name 'release'
+    wait 250
     waitforgump 0 3000
     gumpresponse 0
     wait releaseDelay
@@ -37,8 +41,8 @@ while not dead
     ################################
     ### RELEASE PET 2
     ################################
-    contextmenu 'trainPet2' 6
-    wait 500
+    say pet2Name 'release'
+    wait 250
     waitforgump 0 3000
     gumpresponse 0
     wait releaseDelay
