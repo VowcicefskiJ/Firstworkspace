@@ -3,9 +3,9 @@
 # Plays until you manually pause it
 # Releases pet 1, releases pet 2, tames pet 1, tames pet 2, repeat.
 ########################################
-# V 11.0  - Last Updated: 03/06/2026 ##
+# V 12.0  - Last Updated: 03/06/2026 ##
 ########################################
-@setvar! tameDelay 4500
+@setvar! tameDelay 8000
 @setvar! releaseDelay 500
 ########################################
 ### SELECT PET 1
