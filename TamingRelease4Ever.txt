@@ -1,9 +1,9 @@
 # Taming and Release 4Ever By ZentosPlay - https://www.youtube.com/@ZentosPlay
 # RELEASE + RE-TAMING FOREVER (DUAL PET VERSION)
 # Plays until you manually pause it
-# Releases all pets, tames pet 1, tames pet 2, repeat.
+# Releases pet 1, releases pet 2, tames pet 1, tames pet 2, repeat.
 ########################################
-# V 6.0  - Last Updated: 03/06/2026 ##
+# V 7.0  - Last Updated: 03/06/2026 ##
 ########################################
 @setvar! tameDelay 4500
 @setvar! releaseDelay 500
@@ -26,9 +26,18 @@ wait 300
 ########################################
 while not dead
     ################################
-    ### RELEASE ALL PETS
+    ### RELEASE PET 1
     ################################
-    say 'all release'
+    contextmenu 'trainPet1' 6
+    wait 500
+    waitforgump 0 3000
+    gumpresponse 0
+    wait releaseDelay
+
+    ################################
+    ### RELEASE PET 2
+    ################################
+    contextmenu 'trainPet2' 6
     wait 500
     waitforgump 0 3000
     gumpresponse 0
