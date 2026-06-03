@@ -3,20 +3,16 @@
 # Plays until you manually pause it
 # Releases pet 1, releases pet 2, tames pet 1, tames pet 2, repeat.
 ########################################
-# V 4.0  - Last Updated: 03/06/2026 ##
+# V 5.0  - Last Updated: 03/06/2026 ##
 ########################################
 @setvar! tameDelay 4500
-@setvar! releaseDelay 300
+@setvar! releaseDelay 500
 ########################################
 ### SELECT PET 1
 ########################################
 overhead 'SELECT PET 1' 88
 sysmsg 'Click on the FIRST pet you want to train.'
 setvar 'trainPet1'
-wait 300
-useobject 'trainPet1'
-waitforgump 0 1000
-rename 'trainPet1' 'TrainPet1'
 wait 300
 ########################################
 ### SELECT PET 2 (same type as Pet 1)
@@ -25,10 +21,6 @@ overhead 'SELECT PET 2' 88
 sysmsg 'Click on the SECOND pet you want to train (same type as Pet 1).'
 setvar 'trainPet2'
 wait 300
-useobject 'trainPet2'
-waitforgump 0 1000
-rename 'trainPet2' 'TrainPet2'
-wait 300
 ########################################
 ### LOOP
 ########################################
@@ -36,7 +28,7 @@ while not dead
     ################################
     ### RELEASE PET 1
     ################################
-    say 'TrainPet1 release'
+    say 'all release'
     wait 250
     waitforgump 2426193729 2000
     gumpresponse 1
@@ -45,7 +37,7 @@ while not dead
     ################################
     ### RELEASE PET 2
     ################################
-    say 'TrainPet2 release'
+    say 'all release'
     wait 250
     waitforgump 2426193729 2000
     gumpresponse 1
@@ -58,8 +50,6 @@ while not dead
     waitfortarget 1500
     target 'trainPet1'
     wait tameDelay
-    rename 'trainPet1' 'TrainPet1'
-    wait 300
 
     ################################
     ### TAME PET 2
@@ -68,7 +58,5 @@ while not dead
     waitfortarget 1500
     target 'trainPet2'
     wait tameDelay
-    rename 'trainPet2' 'TrainPet2'
-    wait 300
 
 endwhile
