@@ -3,9 +3,10 @@
 # Plays until you manually pause it
 # Releases pet 1, releases pet 2, tames pet 1, tames pet 2, repeat.
 ########################################
-# V 13.0  - Last Updated: 03/06/2026 ##
+# V 14.0  - Last Updated: 03/06/2026 ##
 ########################################
 @setvar! tameDelay 8000
+@setvar! betweenTameDelay 6000
 @setvar! releaseDelay 500
 ########################################
 ### SELECT PET 1 (TrainPet)
@@ -60,7 +61,7 @@ while not dead
     target 'trainPet1'
     wait tameDelay
     rename 'trainPet1' 'TrainPet'
-    wait 500
+    wait betweenTameDelay
 
     ################################
     ### TAME PET 2 (a husk crab - keeps its name naturally)
